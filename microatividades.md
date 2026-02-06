@@ -138,3 +138,57 @@
     ],
   )
 ````
+
+## Microatividade 4: Utilização do Widget ListView em Flutter
+
+### Material necessário para a prática
+
+- Editor de texto ou IDE (Sugestões: IntelliJ ou VS Code)
+- Flutter SDK
+- Android Studio e/ou xCode
+- Simulador Android ou iOS
+- Navegador Web: Google Chrome, Firefox, MS Edge, Safari ou Opera
+
+### Procedimentos
+
+1. Em certos casos, é necessário criar telas compostas por listas, como uma agenda de contatos ou uma lista de vários itens. Para isso, utilizamos o widget ListView:
+
+````
+  ListTile(
+    title: Text('Flutter'),
+    subtitle: Text('Tudo é um widget'),
+    leading: Icon(Icons.flash_on),
+    trailing: Icon(Icons.keyboard_arrow_right),
+  )
+````
+
+2. Adicione esse widget à sua lista para criar cada item:
+
+````
+// Exemplo de uma ListView com três ListTile
+ListView(
+  children: [
+    ListTile(
+      title: Text('Flutter'),
+      subtitle: Text('Tudo é um widget'),
+      leading: Icon(Icons.flash_on),
+      trailing: Icon(Icons.keyboard_arrow_right),
+    ),
+
+    ListTile(
+      title: Text('Dart'),
+      subtitle: Text('É fácil'),
+      leading: Icon(Icons.mood),
+      trailing: Icon(Icons.keyboard_arrow_right),
+    ),
+
+    ListTile(
+      title: Text('Firebase'),
+      subtitle: Text('Combina com Flutter'),
+      leading: Icon(Icons.whatshot),
+      trailing: Icon(Icons.keyboard_arrow_right),
+    ),
+  ],
+)
+````
+
