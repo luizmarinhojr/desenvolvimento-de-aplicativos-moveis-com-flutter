@@ -42,3 +42,57 @@
     yay -S android-studio
 ````
 
+## Microatividade 2: Utilização de Widgets Flutter Básicos - MaterialApp, Scaffold e AppBar
+
+### Material necessário para a prática
+
+- Editor de texto ou IDE (Sugestões: IntelliJ ou VS Code)
+- Flutter SDK
+- Android Studio e/ou xCode
+- Simulador Android ou iOS
+- Navegador Web: Google Chrome, Firefox, MS Edge, Safari ou Opera
+
+### Procedimentos
+
+1. No editor de texto ou IDE, inicie um novo projeto Flutter utilizando o comando flutter create my_app.
+2. Navegue até a pasta do projeto e abra o arquivo main.dart dentro da pasta lib.
+3. No arquivo mencionado, introduza os Widgets básicos de um aplicativo Flutter:
+   1. Importe os pacotes necessários do Flutter.
+   2. Crie uma função que retorne um MaterialApp contendo um Scaffold e algum
+   texto, conforme abaixo:
+    ````
+    import 'package:flutter/material.dart';
+    
+    void main() {
+      return runApp(
+        MaterialApp(
+          home: StatelessWidgetExemplo("Olá Flutter - MaterialApp"),
+        )
+      );
+    }
+    
+    class StatelessWidgetExemplo extends StatelessWidget {
+      final String _appBarTitle;
+      StatelessWidgetExemplo(this._appBarTitle) : super();
+
+      @override
+      Widget build(BuildContext context) {
+        return Scaffold(
+          appBar: AppBar(
+            title: Text(_appBarTitle),
+          ),
+          body: Center(
+            child: Text('Macoratti .net'),
+          ),
+        );
+      }
+    }
+    ````
+
+4. Salve as alterações no arquivo main.dart.
+
+5. Inicie o servidor com o comando flutter run.
+
+6. Verifique se o texto que você inseriu está sendo exibido no simulador. Se afirmativo, a tarefa foi concluída com sucesso.
+
+7. Como etapa extra e opcional, considere utilizar um linter, como Dart Linter, para verificar a sintaxe e a validade do seu código.
