@@ -9,7 +9,7 @@
 - Git para controle de versionamento;
 - Emulador Android ou iOS para testar o aplicativo.
 
-### Ambiente Arch Linux
+### Procedimentos - Arch Linux
 
 #### Instalação do Flutter SDK
 
@@ -96,3 +96,45 @@
 6. Verifique se o texto que você inseriu está sendo exibido no simulador. Se afirmativo, a tarefa foi concluída com sucesso.
 
 7. Como etapa extra e opcional, considere utilizar um linter, como Dart Linter, para verificar a sintaxe e a validade do seu código.
+
+## Microatividade 3: Criação de layouts básicos com os Widgets
+
+### Material necessário para a prática
+
+- Editor de texto ou IDE (Sugestões: IntelliJ ou VS Code)
+- Flutter SDK
+- Android Studio e/ou xCode
+- Simulador Android ou iOS
+- Navegador Web: Google Chrome, Firefox, MS Edge, Safari ou Opera
+
+### Procedimentos
+
+1. Crie um layout utilizando a composição de Widgets.
+2. Construa o layout conforme a seguinte estrutura:
+
+````
+  // Exemplo de uma coluna (Column) contendo um ícone (Icon) e um texto (Text).
+  Column(
+    children: [Icon(Icons.call), Text('Call')],
+  )
+````
+
+3. Utilize 3 instâncias dessa estrutura em uma linha horizontal (Row). A estrutura é a mesma, mudando apenas o ícone e o texto:
+
+````
+  // Exemplo de uma linha (Row) com três colunas
+  Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: [
+      Column(
+        children: <Widget>[Icon(Icons.call), Text('Call')],
+      ),
+      Column(
+        children: <Widget>[Icon(Icons.directions), Text('Route')],
+      ),
+      Column(
+        children: <Widget>[Icon(Icons.share), Text('Share')],
+      ),
+    ],
+  )
+````
