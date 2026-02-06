@@ -1,0 +1,74 @@
+# Trabalho Prático | Posso criar um App de outra forma!
+
+## Contextualização
+
+A "Explore Mundo", uma Agência de Viagens, está em busca de melhorias para tornar
+seu aplicativo mais atrativo e funcional para os clientes. O objetivo é proporcionar uma
+experiência em que os usuários possam explorar destinos, consultar pacotes de
+viagens, efetuar reservas, entrar em contato com a equipe e obter informações
+detalhadas sobre a localização e as avaliações de estrelas para cada destino. As
+principais características desejadas para o app incluem:
+
+1. **Banner de Destaque:** Um elemento visual destacado, como uma imagem ou
+slideshow, exibindo fotos irresistíveis dos destinos oferecidos pela agência. Cada
+imagem será interativa, direcionando os usuários para páginas específicas de
+destinos ao serem tocadas.
+
+2. **Barra de Navegação:** Uma barra superior intuitiva, contendo links para diferentes
+seções do aplicativo, como "destinos", "pacotes de viagem", "contato" e "sobre nós".
+Essa navegação facilita o acesso dos usuários às áreas relevantes do app.
+
+3. **Pesquisa Rápida:** Implementação de um campo de pesquisa que permitirá aos
+usuários inserir destinos específicos ou dados desejados, agilizando a busca por
+pacotes de viagem.  🔎
+
+Além dessas melhorias para o aplicativo, a empresa tem o objetivo de ampliar seu
+alcance de mercado desenvolvendo um site complementar. Esse site oferecerá aos
+clientes acesso fácil às informações da agência e a praticidade de efetuar reservas de
+viagens diretamente por meio de seus dispositivos móveis. Essa estratégia visa
+proporcionar uma experiência integrada e conveniente para os clientes explorarem as
+ofertas da agência, tanto no aplicativo quanto no site.
+
+## Roteiro de prática 📝
+
+### Material necessário para a prática
+
+- Editor de texto ou IDE (Sugestões: IntelliJ ou VS Code)
+- Flutter SDK
+- Android Studio e/ou xCode
+- Simulador Android ou iOS
+- Navegador Web: Google Chrome, Firefox, MS Edge, Safari ou Opera
+
+### Procedimentos
+
+1. Configuração do Ambiente: Certifique-se de ter seu ambiente configurado. Crie um novo aplicativo Flutter.
+
+2. Estrutura Inicial: Substitua o conteúdo do arquivo lib/main.dart pelo código fornecido, o qual configura uma estrutura básica para o aplicativo.
+
+````
+import 'package:flutter/material.dart';
+
+
+void main() => runApp(const MyApp());
+
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter layout demo',
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Flutter layout demo'),
+        ),
+        body: const Center(
+          child: Text('Hello World'),
+        ),
+      ),
+    );
+  }
+}
+````
+
