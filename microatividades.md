@@ -192,3 +192,38 @@ ListView(
 )
 ````
 
+## Microatividade 5: Desenvolvimento de Outra Funcionalidade para o Widget em Flutter
+
+### Material necessário para a prática
+
+- Editor de texto ou IDE (Sugestões: IntelliJ ou VS Code)
+- Flutter SDK
+- Android Studio e/ou xCode
+- Simulador Android ou iOS
+- Navegador Web: Google Chrome, Firefox, MS Edge, Safari ou Opera
+
+### Procedimentos
+
+1. Em determinadas situações, é necessário empilhar um Widget sobre o outro. Observe que o texto está posicionado "acima" da imagem. O widget utilizado para criar essa pilha de widgets é o Stack:
+ 
+````
+ Stack(
+  children: [
+    Container(
+      width: 250,
+      height: 250,
+      color: Colors.blue,
+    ),
+    Container(
+      width: 200,
+      height: 200,
+      color: Colors.red,
+    ),
+    Container(
+      width: 150,
+      height: 150,
+      color: Colors.yellow,
+    )
+  ],
+)
+````

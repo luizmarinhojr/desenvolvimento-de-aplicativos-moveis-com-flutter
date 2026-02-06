@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -60,6 +62,40 @@ class StatelessWidgetExemplo extends StatelessWidget {
               ],
             ),
           ),
+
+          Stack(
+            children: [
+              Container(
+                width: 250,
+                height: 250,
+                color: Colors.blue,
+              ),
+              Container(
+                width: 200,
+                height: 200,
+                color: Colors.red,
+              ),
+              Container(
+                width: 150,
+                height: 150,
+                color: Colors.yellow,
+              )
+            ],
+          ),
+          Stack(
+            children: [
+              ClipOval(
+                child:
+                Image.network(
+                  "https://i0.wp.com/picjumbo.com/wp-content/uploads/dark-tropical-green-nature-background-free-image.jpeg?w=2210&quality=70",
+                  width: 250.0,
+                  height: 250.0,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Text("Avatar asdsadsa dsa s das das ", textAlign: TextAlign.start)
+            ]
+          )
         ],
       ),
     );
