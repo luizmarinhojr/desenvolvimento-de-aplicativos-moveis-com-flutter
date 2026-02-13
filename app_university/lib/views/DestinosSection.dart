@@ -1,81 +1,106 @@
+import 'package:app_university/views/DetailsSection.dart';
 import 'package:flutter/material.dart';
 
-class DestinosSection extends StatelessWidget {
+class DestinosSection extends StatefulWidget {
   const DestinosSection({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  State<DestinosSection> createState() => _DestinationsPageState();
+}
 
-    return ListView(
-      children: [
-        Image.asset(
-          'images/lake.jpg',
-          width: 600,
-          height: 240,
-          fit: BoxFit.cover,
-        ),
-        _buildTitleSection(),
-        _buildButtonSection(Theme.of(context).primaryColor),
-        _buildTextSection(),
-      ],
-    );
+class _DestinationsPageState extends State<DestinosSection> {
+  final List<Map<String, String>> _allDestinations = [
+    {'name': 'Oeschinen Lake', 'location': 'Kandersteg, Switzerland', 'img': 'images/lake.jpg'},
+    {'name': 'Indonésia', 'location': 'Bali, Indonésia', 'img': 'images/indonesia.jpg'},
+    {'name': 'Montanhas Tianmen', 'location': 'Zhangjiajie, China', 'img': 'images/olho.jpg'},
+  ];
+  
+  List<Map<String, String>> _foundDestinations = [];
+
+  @override
+  void initState() {
+    _foundDestinations = _allDestinations;
+    super.initState();
+  }
+  
+  void _runFilter(String enteredKeyword) {
+    List<Map<String, String>> results = [];
+    if (enteredKeyword.isEmpty) {
+      results = _allDestinations;
+    } else {
+      results = _allDestinations
+          .where((dest) =>
+          dest['name']!.toLowerCase().contains(enteredKeyword.toLowerCase()))
+          .toList();
+    }
+
+    setState(() {
+      _foundDestinations = results;
+    });
   }
 
-  Widget _buildTitleSection() {
+  Widget _buildSearchField() {
     return Container(
-      padding: const EdgeInsets.all(32),
-      child: Row(
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: const Text('Oeschinen Lake Campground', style: TextStyle(fontWeight: FontWeight.bold)),
-                ),
-                Text('Kandersteg, Switzerland', style: TextStyle(color: Colors.grey[500])),
-              ],
-            ),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      child: TextField(
+        onChanged: (value) {
+          _runFilter(value);
+        },
+        decoration: InputDecoration(
+          hintText: 'Pesquisar destino (ex: Maricá, Suíça...)',
+          prefixIcon: const Icon(Icons.search),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30),
+            borderSide: BorderSide.none,
           ),
-          Icon(Icons.star, color: Colors.red[500]),
-          const Text('41'),
-        ],
+          filled: true,
+          fillColor: Colors.grey[200],
+        ),
       ),
     );
   }
 
-  Widget _buildButtonSection(Color color) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        _buildButtonColumn(color, Icons.call, 'CALL'),
-        _buildButtonColumn(color, Icons.near_me, 'ROUTE'),
-        _buildButtonColumn(color, Icons.share, 'SHARE'),
-      ],
-    );
-  }
-
-  Column _buildButtonColumn(Color color, IconData icon, String label) {
+  @override
+  Widget build(BuildContext context) {
     return Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(icon, color: color),
-        Container(
-          margin: const EdgeInsets.only(top: 8),
-          child: Text(label, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: color)),
+        _buildSearchField(),
+        Expanded(
+          child: _foundDestinations.isNotEmpty
+              ? ListView.builder(
+            itemCount: _foundDestinations.length,
+            itemBuilder: (context, index) => _buildDestinationItem(index),
+          )
+              : const Center(child: Text('Nenhum destino encontrado')),
         ),
       ],
     );
   }
 
-  Widget _buildTextSection() {
-    return Container(
-      padding: const EdgeInsets.all(32),
-      child: const Text(
-        "O Lago Oeschinen fica aos pés do Blüemlisalp nos Alpes Berneses. Situado a 1.578 metros acima do nível do mar, é um dos lagos alpinos mais amplos. Um passeio de teleférico a partir de Kandersteg, seguido por meia hora de caminhada por pastagens e floresta de pinheiros, leva você ao lago, que aquece até 20 graus Celsius no verão. As atividades desfrutadas aqui incluem remo e andar no tobogã de verão.",
-        softWrap: true,
+  Widget _buildDestinationItem(int index) {
+    final destination = _foundDestinations[index];
+
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DetailsSection(destination: destination),
+          ),
+        );
+      },
+      child: Card(
+        margin: const EdgeInsets.all(10),
+        child: Column(
+          children: [
+            Image.asset(destination['img']!, fit: BoxFit.cover),
+            ListTile(
+              title: Text(destination['name']!),
+              subtitle: Text(destination['location']!),
+              trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+            ),
+          ],
+        ),
       ),
     );
   }
