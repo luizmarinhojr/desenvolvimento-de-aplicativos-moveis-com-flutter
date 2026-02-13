@@ -34,3 +34,11 @@ ofertas da agência, tanto no aplicativo quanto no site.
 ### Demonstração
 ![demo](https://github.com/user-attachments/assets/2f52ef4b-c6e3-460b-a654-f1f849bc71a5)
 
+## Acesso
+
+O relatório do projeto pode ser encontrado no link: [Relatório do Projeto](https://github.com/luizmarinhojr/desenvolvimento-de-aplicativos-moveis-com-flutter/blob/main/RelatorioMissaoPr%C3%A1tica-APPMOVEISFLUTTER-LUIZCARLOSMARINHOJUNIOR.pdf)
+
+<br>
+
+O código do aplicativo pode ser encontrado no link: [Código do Aplicativo](https://github.com/luizmarinhojr/desenvolvimento-de-aplicativos-moveis-com-flutter/tree/main/app_university)
+
