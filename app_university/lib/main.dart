@@ -47,7 +47,8 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Vou de Voo App'),
+        title: const Text('Vou de Voo App', style: TextStyle(color: Colors.white)),
+        backgroundColor: Theme.of(context).primaryColor,
       ),
       body: IndexedStack(
         index: _selectedIndex,
